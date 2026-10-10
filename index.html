@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c151c">
+  <title>Shiva Cricket Analyst</title>
+  <meta name="description" content="Shiva Cricket Analyst — cricket analysis, match updates and insights for fans.">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px;
+      color: #f8fafc;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(27, 47, 58, .42), transparent 52%),
+        linear-gradient(180deg, #101d26 0%, #0b1319 100%);
+    }
+    .card {
+      width: min(100%, 606px);
+      padding: 48px 32px 44px;
+      border: 1px solid rgba(148, 163, 184, .20);
+      border-radius: 38px;
+      background: linear-gradient(145deg, rgba(23, 31, 39, .97), rgba(18, 25, 32, .98));
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .24);
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 26px;
+      font-size: clamp(25px, 5.5vw, 35px);
+      line-height: 1.15;
+      letter-spacing: -.6px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .tagline {
+      margin: 0 0 39px;
+      padding: 15px 12px;
+      border-radius: 10px;
+      background: #f0f000;
+      color: #080b0d;
+      font-size: clamp(14px, 3.5vw, 20px);
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .timer {
+      margin: 0 0 26px;
+      color: #9ca9bd;
+      font-size: 19px;
+      font-weight: 800;
+    }
+    .timer span { color: #19c784; }
+    .join {
+      min-height: 120px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 22px;
+      border: 3px solid #f8fafc;
+      border-radius: 29px;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(180deg, #a62600 0%, #711800 100%);
+      box-shadow: 0 0 28px rgba(0, 220, 135, .12);
+      font-size: clamp(17px, 3.8vw, 22px);
+      font-weight: 800;
+      line-height: 1.25;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .join:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .join:active { transform: scale(.99); }
+    .join-label { max-width: 340px; }
+    .telegram {
+      flex: 0 0 43px;
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      color: #a12a08;
+    }
+    .telegram svg { width: 25px; height: 25px; fill: currentColor; }
+    .divider {
+      margin: 39px 0 30px;
+      border: 0;
+      border-top: 1px dashed rgba(148, 163, 184, .24);
+    }
+    .disclaimer {
+      margin: 0 auto 31px;
+      max-width: 490px;
+      color: #758296;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .credit { margin: 0; font-size: 18px; font-weight: 800; }
+    .credit span { color: #3478ff; }
+    @media (max-width: 420px) {
+      .card { padding: 38px 20px 36px; border-radius: 30px; }
+      .tagline { margin-bottom: 32px; }
+      .join { min-height: 104px; gap: 12px; padding: 17px 12px; border-radius: 25px; }
+      .telegram { width: 38px; height: 38px; flex-basis: 38px; }
+      .disclaimer { font-size: 13px; }
+      .credit { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>SHIVA CRICKET ANALYST <sup style="font-size:.42em; vertical-align:super;">™</sup></h1>
+    <p class="tagline">Accurate Analysis · Match Updates · Cricket Insights</p>
+    <p class="timer">FREE JOINING ENDS IN <span id="seconds">7s</span></p>
+    <a class="join" href="https://t.me/+XnehYNT7XjMzNjI1" target="_blank" rel="noopener noreferrer">
+      <span class="join-label">JOIN TELEGRAM FOR NEW<br>UPDATE</span>
+      <span class="telegram" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M21.8 4.2 18.6 19c-.2 1-1 1.2-1.8.8l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6 12.4 1.1 10.9c-1.1-.3-1.1-1.1.2-1.6L20.2 2c.9-.3 1.8.2 1.6 2.2Z"/></svg>
+      </span>
+    </a>
+    <hr class="divider">
+    <p class="disclaimer">Disclaimer: This channel shares cricket updates, analysis, and general information for fans. It does not promote betting or gambling. No outcomes are guaranteed. Please verify information independently and act responsibly.</p>
+    <p class="credit">Ads by <span>Shiva Cricket Analyst</span></p>
+  </main>
+  <script>
+    let remaining = 7;
+    const seconds = document.getElementById('seconds');
+    const timer = setInterval(() => {
+      remaining -= 1;
+      if (remaining <= 0) {
+        seconds.textContent = '0s';
+        clearInterval(timer);
+      } else {
+        seconds.textContent = remaining + 's';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
